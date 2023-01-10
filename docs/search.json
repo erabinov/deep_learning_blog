@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Eugene’s Deep Learning Blog",
+    "section": "",
+    "text": "First Blog Post\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi everybody! My name is Eugene! I’m a postdoc in pure mathematics at the University of Notre Dame. I received my PhD in mathematics from University of California, Berkeley in 2021. My research interests center around mathematical formulations of quantum field theory. As a side/pet project, I am learning about data science and machine learning. This blog is to document some of the things I’m learning. I am using the book Deep Learning for Coders and following the corresponding course from fast.ai."
+  },
+  {
+    "objectID": "posts/first-ipynb-post/index.html",
+    "href": "posts/first-ipynb-post/index.html",
+    "title": "First Blog Post",
+    "section": "",
+    "text": "print(\"Hello World!\")\n\nHello World!"
+  }
+]

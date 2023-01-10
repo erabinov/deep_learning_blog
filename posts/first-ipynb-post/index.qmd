@@ -1,0 +1,15 @@
+---
+jupyter: python3
+---
+
+---
+title: "First Blog Post"
+format:
+  html:
+    html-math-method: katex
+---
+
+```{python}
+print("Hello World!")
+```
+
