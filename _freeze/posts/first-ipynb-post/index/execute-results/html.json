@@ -1,7 +1,7 @@
 {
-  "hash": "00211adab0be8fbefe7156ae0c091d64",
+  "hash": "9578628535d32c177d42eb53783e1e25",
   "result": {
-    "markdown": "---\ntitle: \"First Blog Post\"\nformat:\n  html:\n    html-math-method: katex\n---\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\nprint(\"Hello World!\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nHello World!\n```\n:::\n:::\n\n\n",
+    "markdown": "---\ntitle: \"Welcome to my blog!\"\nformat:\n  html:\n    html-math-method: mathjax\n---\n\nFor my first entry, I will just plug my very simple bird-song classifier, which can be found [here](https://huggingface.co/spaces/erabinov/bird_song_classifier). It is hosted using the free platform Hugging Face Spaces, so I may have to periodically rebuild. If it doesn't work for you, raise an issue on the GitHub page, and I will rebuild.\n\nThis is a very simple classifier I built using fastai. It uses an 18-layer neural net (resnet18) to classify sounds as being the songs of one of three species of bird: American Robin, Northern Cardinal, or Blue Jay.\n\n",
     "supporting": [
       "index_files"
     ],

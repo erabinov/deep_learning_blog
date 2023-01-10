@@ -121,8 +121,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>For my first entry, I will just plug my very simple bird-song classifier, which can be found <a href="https://huggingface.co/spaces/erabinov/bird_song_classifier">here</a>. It is hosted using the free platform Hugging Face Spaces, so I may have to periodically rebuild. If it doesn’t work for you, raise an issue on the GitHub page, and I will rebuild.</p>
+<p>For my first entry, I will just plug my very simple bird-song classifier, which can be found <a href="https://huggingface.co/spaces/erabinov/bird_song_classifier">here</a>. It is hosted using the free platform Hugging Face Spaces. You may have to ask Hugging Face to rebuild the app, which may take some time.</p>
 <p>This is a very simple classifier I built using fastai. It uses an 18-layer neural net (resnet18) to classify sounds as being the songs of one of three species of bird: American Robin, Northern Cardinal, or Blue Jay.</p>
+<p>Under the hood, the classifier converts the audio file into an image/spectrogram (this accounts for most of the processing time of the app), then uses the neural net to classify the images.</p>
+<p>What I’m liking so far about the fastai course is that you build a project in lectures 1 and 2, and then go under the hood in subsequent lectures. I’m a mathematician, so I’m used to going from theoretical foundations to practice and not the other way around. That way certainly has its merits, but I’ve also noticed that in my own research, I’m much more able to digest theory if I have a sense of the kind of problem I want to solve and how the theory helps me solve that problem. I also think this practically-focused way to learn things is well-suited to my background: I am already finding that I can often fill in the backgrond theory based on the brief allusions made in the course. More on this in my next post…</p>
 
 
 

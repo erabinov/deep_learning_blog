@@ -1,0 +1,11 @@
+{
+  "hash": "3116072372cd4c74627fc87ef47ca6db",
+  "result": {
+    "markdown": "---\ntitle: \"Welcome to my blog!\"\nformat:\n  html:\n    html-math-method: mathjax\n---\n\nFor my first entry, I will just plug my very simple bird-song classifier, which can be found [here](https://huggingface.co/spaces/erabinov/bird_song_classifier). It is hosted using the free platform Hugging Face Spaces. You may have to ask Hugging Face to rebuild the app, which may take some time.\n\nThis is a very simple classifier I built using fastai. It uses an 18-layer neural net (resnet18) to classify sounds as being the songs of one of three species of bird: American Robin, Northern Cardinal, or Blue Jay.\n\nUnder the hood, the classifier converts the audio file into an image/spectrogram (this accounts for most of the processing time of the app), then uses the neural net to classify the images.\n\nWhat I'm liking so far about the fastai course is that you build a project in lectures 1 and 2, and then go under the hood in subsequent lectures.\nI'm a mathematician, so I'm used to going from theoretical foundations to practice and not the other way around.\nThat way certainly has its merits, but I've also noticed that in my own research, I'm much more able to digest theory if I have a sense of the kind of problem I want to solve and how the theory helps me solve that problem.\nI also think this practically-focused way to learn things is well-suited to my background: I am already finding that I can often fill in the backgrond theory based on the brief allusions made in the course. More on this in my next post...\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
