@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Eugene’s Deep Learning Journey - Eugene’s Deep Learning Blog</title>
+<title>Eugene’s Deep Learning Journey - The Universal Approximation Theorem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,49 +58,20 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Eugene’s Deep Learning Journey</span>
     </a>
   </div>
@@ -112,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -129,8 +98,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Eugene’s Deep Learning Blog</h1>
+    <div class="quarto-title column-body">
+      <h1 class="title">The Universal Approximation Theorem</h1>
                       </div>
   </div>
     
@@ -143,65 +112,27 @@ ul.task-list li input[type="checkbox"] {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p>I’ve read in the fast.ai book about the <em>universal approximation theorem</em>. It’s described vaguely, but since I am a mathematician by training, I’m going to try to do the following in this post: first, I’ll guess at the precise statement of the theorem. Then, I’ll look the precise statement up. And finally, I’ll try to extract some lessons from the exercise.</p>
+<p>So, here’s the guess: Let <span class="math inline">\(g:\mathbb R \to \mathbb R\)</span> be the function</p>
+<p><span class="math display">\[g(x) = \max(x,0).\]</span></p>
+<p>This is the ReLU/rectified linear unit function. Given any other continuous function <span class="math inline">\(f: \mathbb R^n \to \mathbb R\)</span>, any <span class="math inline">\(\epsilon&gt;0\)</span>, and any compact subset <span class="math inline">\(S\subset \mathbb R^n\)</span>, there exist constants <span class="math inline">\(\{c_{i}^j\}_{i=1,j=1}^{i=n,j=m}\)</span>, <span class="math inline">\(\{b_i\}_{i=1}^n\)</span>, <span class="math inline">\(\{d_j\}_{j=1}^m\)</span>, and <span class="math inline">\(w\)</span> such that <span class="math display">\[ \left| f(x^1,\ldots, x^n) - w - \sum_{j=1}^m d_j g\left( \sum_{i=1}^n c_i^j x^i\right)\right|&lt;\epsilon,\quad \forall x\in S.\]</span></p>
+<p>Taking a look <a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem#Arbitrary-width_case">here</a>, we see that this version of the theorem is called the “arbitrary-width” version of the theorem. The only thing which is different between the above statement and the reference in Wikipedia is that Wikipedia informs us that the theorem applies for any continuous function which is not polynomial in place of <span class="math inline">\(g\)</span> (the ReLU function is not polynomial because it is not identically zero but has infinitely many zeroes). All the other differences are a matter of differences in notation but not content; the biggest such difference is that <span class="math inline">\(f\)</span> is allowed on the Wikipedia page to have codomain <span class="math inline">\(\mathbb R^k\)</span> for some <span class="math inline">\(k\)</span>; but this follows from my case by the triangle inequality.</p>
+<p>On the Wikipedia page, there are other versions of the theorem. The most interesting one to me is the one which allows one to fix <span class="math inline">\(m\)</span> (the “width” of the network) to be bounded by <span class="math inline">\(n+m+2\)</span> by allowing arbitrarily many layers in the network, i.e.&nbsp;by combining the various <span class="math inline">\(d_j g\)</span> terms as the inputs to more copies of <span class="math inline">\(g\)</span>. This represents that tradeoff between depth and width that I’ve learned about. This works if <span class="math inline">\(g\)</span> is any non-affine function. Apparently, and this is really cool to me, it’s possible to determine the minimum required depth for a fixed <span class="math inline">\(f\)</span> and <span class="math inline">\(\epsilon\)</span>.</p>
+<p>Finally, there is a version of the theorem that, by choosing a suitable candidate for <span class="math inline">\(g\)</span>, one can put a global bound on both the depth and width of the network! I wonder if this choice of <span class="math inline">\(g\)</span> gives significant performance improvements in practice…</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1673565391808" data-listing-reading-time-sort="1.94">
-<div class="body">
-<a href="./posts/12-01-23-post-1/index.html">
-<h3 class="no-anchor listing-title">
-The Universal Approximation Theorem
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-I’ve read in the fast.ai book about the <em>universal approximation theorem</em>. It’s described vaguely, but since I am a mathematician by training, I’m going to try to do the following in this post: first, I’ll guess at the precise statement of the…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/12-01-23-post-1/index.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1673538575440" data-listing-reading-time-sort="1.25">
-<div class="body">
-<a href="./posts/10-01-23-post-1/index.html">
-<h3 class="no-anchor listing-title">
-Welcome to my blog!
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-For my first entry, I will just plug my very simple bird-song classifier, which can be found here. It is hosted using the free platform Hugging Face…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/10-01-23-post-1/index.html"> </a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
