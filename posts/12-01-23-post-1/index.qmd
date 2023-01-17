@@ -18,7 +18,7 @@ $$g(x) = \max(x,0).$$
 
 This is the ReLU/rectified linear unit function.
 Given any other continuous function $f: \mathbb R^n \to \mathbb R$, any $\epsilon>0$, and any compact subset $S\subset \mathbb R^n$, there exist constants $\{c_{i}^j\}_{i=1,j=1}^{i=n,j=m}$, $\{b_i\}_{i=1}^n$, $\{d_j\}_{j=1}^m$, and $w$ such that 
-$$ \left| f(x^1,\ldots, x^n) - w - \sum_{j=1}^m d_j g\left( \sum_{i=1}^n c_i^j x^i\right)\right|<\epsilon,\quad \forall x\in S.$$
+$$ \left| f(x^1,\ldots, x^n) - w - \sum_{j=1}^m d_j g\left(b_i+ \sum_{i=1}^n c_i^j x^i\right)\right|<\epsilon,\quad \forall x\in S.$$
 
 
 Taking a look [here](https://en.wikipedia.org/wiki/Universal_approximation_theorem#Arbitrary-width_case), we see that this version of the theorem is called the "arbitrary-width" version of the theorem.
