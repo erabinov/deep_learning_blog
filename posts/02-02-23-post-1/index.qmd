@@ -1,0 +1,77 @@
+
+---
+jupyter: python3
+---
+
+---
+title: "Principal Components Analysis"
+format:
+  html:
+    html-math-method: mathjax
+---
+
+For this blog post, I want to talk about principal components analysis (PCA). This is something I learned about from the great book *Introduction to Statistical Learning with R* by James, Witten, Hastie, and Tibshirani. This is another one of those "delve deeper into the math theory" posts. 
+
+So the book presents two different equivalent formulations of the principal components problem. To study this, let $X$ be our data set, represented as a $n\times p$ matrix. 
+We assume that the columns of $X$ have zero mean.
+We will use symbols like $\phi_1$ to represent a $p$-vector, and symbols like $z_1$ to represent an $n$-vector.
+We will think of vectors always as column vectors and use the superscript $T$ to denote the corresponding row vectors, e.g. $\phi_1^T$.
+The first formulation of the PCA problem is in the following optimization problem: we want to maximize $\phi^T X^T X \phi= ||X\phi||^2$ by varying $\phi$ among all unit $p$-vectors.
+The vector $z_1 = X\phi_1$ is the linear combination of our features with the highest variance (for this interpretation, it was important to set the columns of $X$ to have zero mean).
+The matrix $X^T X$ is symmetric and positive-semi-definite, so it can be diagonalized and all its eigenvalues are non-negative.
+Let us assume that $X^T X$ has only positive eigenvalues, since a zero eigenvalue would mean that some linear combination of the columns of $X$ is zero, and therefore that one of the features encoded in $X$ is redundant.
+Let $y_1,\ldots, y_p$ be the eigenvectors of $X^TX$, and $\lambda_1,\ldots, \lambda_p$ be the corresponding eigenvalues, arranged in increasing order.
+Then, if we write $$\phi = c_1y_1+\cdots+c_py_p,$$ we have $$||\phi||^2 = \sum_i c_i^2$$ and $$||X\phi||^2 = \sum_i \lambda_i c_i^2.$$
+This is a constrained optimization problem (maximize $\sum_i c_i^2\lambda_i$ subject to $\sum_i c_i^2=1$) and it can be solved by Lagrange multipliers.
+The maximum value for the objective function is $\lambda_p$ and is obtained when $c_p=1$ and the other $c$s are zero.
+Then, the first principal component loading vector $\phi_1 =y_p$ is the eigenvector of $X^TX$ corresponding to the highest eigenvalue, and the corresponding principal component is $z_1 = X\phi_1$.
+Next, we seek $z_2 = X\phi_2$ such that $z_2^T z_2$ is maximal among $z_2$ such that $z_2^T z_1=0$.
+Since $z_1 = Xy_p$ and $z_2 = X\phi_2$, we have $$z_2^T z_1 = \phi_2^T X^TX y_p = \lambda_p \phi_2^T y_p=\lambda_p \phi_2^T\phi_1.$$
+So, because $\lambda_p\neq 0$, $z_1$ and $z_2$ are orthogonal only if $\phi_1$ and $\phi_2$ are orthogonal.
+So, finding $\phi_2$ amounts to finding the next highest eigenvalue $\lambda_{p-1}$ and the corresponding eigenvector $y_{p-1}$ (the orthogonal complement to $\phi_1$ is spanned by $y_1,\ldots, y_{p-1}$, so we simply repeat the argument that got $y_1$ on this smaller space).
+And so on, till we've found the $m$ largest eigenvalues of $X^TX$ and have decided to stop.
+To recap: in PCA, we
+
+1. Find the linear combination $z_1=X\phi_1$ of the columns of $X$ which has maximal variance. This corresponds to picking the eigenvector of $X^TX$ with maximal eigenvalue.
+2. Among the linear combinations $z_2 = X\phi_2$ of the columns of $X$ wich $z_2$ orthogonal to $z_1$, we choose the one which has maximal variance. This amounts to picking out the second-largest eigenvalue of $X^TX$.
+3. And so on... We pick out the $m$ largest eigenvalues of $X^TX$, their corresponding eigenvectors, and their corresponding principal components.
+
+The book claims but doesn't show that it this procedure is equivalent to considering the following optimization problem instead: minimize $\mathrm{tr}((X-AB)^T(X-AB))$ as a$A$ ranges over the space of $n\times m$ matrices and $B$ ranges over the space of $m \times p$ matrices.
+Let's show this.
+First, let's note that we can write $AB = \sum_{j=1}^m z_i \phi_i^T$, where the $z_i$ are $n$ vectors and the $\phi_i$ are $p$-vectors (unrelated so far to the ones found from the first formulation of PCA).
+We may assume that the $\phi_i$ are linearly independent (for if we can write one $\phi$ as a linear combination of the others, we can manifest this as a redefinition of the $z$'s).
+For a similar reason, we may assume that the $\phi_i$ are orthonormal.
+Under these assumptions, we may write
+$$
+\begin{aligned}
+\mathrm{tr}((X-AB)^T(X-AB))&= \mathrm{tr}(X^TX)-2\sum_{i} \mathrm{tr}(X^T z_i \phi_i^T)+\sum_{i,j}\mathrm{tr}(\phi_i z_i^T z_j \phi_j^T)\\
+&= \mathrm{tr}(X^TX)- 2\sum_{i} \phi_i^T X^T z_i + \sum_{i} z_i^T z_j, 
+\end{aligned}
+$$
+where we have used that 
+$$
+\mathrm{tr}(\phi' \phi^T) = ||\phi||^2 \phi \cdot \phi'
+$$
+for any two $p$-vectors $\phi$, $\phi'$.
+So, we are trying to find $z_i$ and $\phi_i$ to minimize the above trace, subject to the condition that $\phi_i \cdot \phi_j = \delta_{i,j}$ (i.e. the $\phi$'s are orthonormal).
+There is no constraint on the $z$'s, and the simple optimization problem for the $z$'s gives $$z_i = X\phi_i$$.
+The optimization problem with respect to the $y_i$ is a bit more subtle because the $\phi$'s are  constrained.
+But the Lagrange optimization problem tells us that
+$$
+X^Tz_i =X^TX\phi_i = \sum_j \beta_j \phi_j,
+$$
+where the $\beta_i$ are undetermined Lagrange multipliers.
+But this tells us that $X^TX$ preserves the space spanned by the $\phi_i$.
+Let's call this space $W$.
+Taking all this into account, the objective function becomes
+$$
+\mathrm{tr}_{\mathbb{R}^p}(X^TX)-\mathrm{tr}_{W}(X^TX).
+$$
+To compute the second trace in the above equation, we just need to know the eigenvalues of $X^TX$ when restricted to $W$.
+Let us suppose that the eigenvalues of $X^TX$ on $W$ are $\lambda_{i_1},\ldots, \lambda_{i_m}$. Let $\lambda_{i_{m+1}},\ldots, \lambda_{i_{p}}$ be the remaining eigenvalues.
+Then,
+$$
+\mathrm{tr}_{\mathbb{R}^p}(X^TX)-\mathrm{tr}_{W}(X^TX)=\sum_{j=m+1}^p\lambda_{i_j}.
+$$
+So the objective will be minimized precisely by choosing the $m$ *largest eigenvalues of $X^TX$*, just as in the first formulation of PCA!
+It follows that to minimze $$\mathrm{tr}((X-AB)^T(X-AB)),$$ we choose the $m$ largest eigenvalues of $X^TX$ (which above we called $\lambda_p, \lambda_{p-1},\ldots, \lambda_{p-m+1}$, with respective eigenvectors $y_p,\ldots, y_{p-m+1}$), set $\phi_i = y_{p-i+1}$, $z_i = Xy_{p-i+1}$, and $AB = \sum_{i=1}^m z_i \phi_i^T$, as desired.
