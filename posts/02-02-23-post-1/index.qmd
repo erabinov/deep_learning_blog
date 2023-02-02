@@ -5,6 +5,7 @@ jupyter: python3
 
 ---
 title: "Principal Components Analysis"
+date: "02/02/23"
 format:
   html:
     html-math-method: mathjax

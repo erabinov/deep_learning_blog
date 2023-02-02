@@ -2,10 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/18-01-23-post-1/index.html",
       "/posts/12-01-23-post-1/index.html",
       "/posts/02-02-23-post-1/index.html",
-      "/posts/10-01-23-post-1/index.html"
+      "/posts/10-01-23-post-1/index.html",
+      "/posts/18-01-23-post-1/index.html"
     ]
   }
 ]

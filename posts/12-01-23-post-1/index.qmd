@@ -4,6 +4,7 @@ jupyter: python3
 
 ---
 title: "The Universal Approximation Theorem"
+date: "01/12/23"
 format:
   html:
     html-math-method: mathjax
