@@ -1,0 +1,19 @@
+,,,,
+,,,,
+Variable,Name,Coding,,
+,,,,
+Year of Birth,YEAR,,,
+County of Residence  ,CORES,1-100,,
+Age of Decedent,DTHAGE,0 less than one year of age,,
+Race of Decedent (NCHS coded and edited race 'bridged' categories),RACE,"1 - White
+2 - Black or African American
+3 - American Indian or Alaska Native
+4 - Other",,
+Hispanic Origin of Decedent (NCHS coded and edited Hispanic 'bridged' categories),HISP,"C - Cuban 
+M - Mexican
+N - Non-Hispanic
+O - Other Hispanic
+P - Puerto Rican
+S - Central/South American
+U - Unknown",,
+,,,,
