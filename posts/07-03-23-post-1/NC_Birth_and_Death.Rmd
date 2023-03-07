@@ -1,5 +1,5 @@
 ---
-title: "NC_Birth_and_Death"
+title: "Analyzing Infant Mortality Rates by County, Race, and Income in North Carolina, 2011-2016"
 date: "2023-03-07"
 format:
   html:
