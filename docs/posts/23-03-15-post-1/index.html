@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-01-12">
+<meta name="dcterms.date" content="2023-03-15">
 
-<title>Eugene’s Deep Learning Journey - The Universal Approximation Theorem</title>
+<title>Eugene’s Deep Learning Journey - What I’ve Learned from My First Kaggle Competitions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,7 +60,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -100,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">The Universal Approximation Theorem</h1>
+      <h1 class="title">What I’ve Learned from My First Kaggle Competitions</h1>
                       </div>
   </div>
     
@@ -111,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 12, 2023</p>
+        <p class="date">March 15, 2023</p>
       </div>
     </div>
     
@@ -129,15 +128,47 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I’ve read in the fast.ai book about the <em>universal approximation theorem</em>. It’s described vaguely, but since I am a mathematician by training, I’m going to try to do the following in this post: first, I’ll guess at the precise statement of the theorem. Then, I’ll look the precise statement up. And finally, I’ll try to extract some lessons from the exercise.</p>
-<p>So, here’s the guess: Let <span class="math inline">\(g:\mathbb R \to \mathbb R\)</span> be the function</p>
-<p><span class="math display">\[g(x) = \max(x,0).\]</span></p>
-<p>This is the ReLU/rectified linear unit function. Given any other continuous function <span class="math inline">\(f: \mathbb R^n \to \mathbb R\)</span>, any <span class="math inline">\(\epsilon&gt;0\)</span>, and any compact subset <span class="math inline">\(S\subset \mathbb R^n\)</span>, there exist constants <span class="math inline">\(\{c_{i}^j\}_{i=1,j=1}^{i=n,j=m}\)</span>, <span class="math inline">\(\{b_i\}_{i=1}^n\)</span>, <span class="math inline">\(\{d_j\}_{j=1}^m\)</span>, and <span class="math inline">\(w\)</span> such that <span class="math display">\[ \left| f(x^1,\ldots, x^n) - w - \sum_{j=1}^m d_j g\left(b_i+ \sum_{i=1}^n c_i^j x^i\right)\right|&lt;\epsilon,\quad \forall x\in S.\]</span></p>
-<p>Taking a look <a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem#Arbitrary-width_case">here</a>, we see that this version of the theorem is called the “arbitrary-width” version of the theorem. The only thing which is different between the above statement and the reference in Wikipedia is that Wikipedia informs us that the theorem applies for any continuous function which is not polynomial in place of <span class="math inline">\(g\)</span> (the ReLU function is not polynomial because it is not identically zero but has infinitely many zeroes). All the other differences are a matter of differences in notation but not content; the biggest such difference is that <span class="math inline">\(f\)</span> is allowed on the Wikipedia page to have codomain <span class="math inline">\(\mathbb R^k\)</span> for some <span class="math inline">\(k\)</span>; but this follows from my case by the triangle inequality.</p>
-<p>On the Wikipedia page, there are other versions of the theorem. The most interesting one to me is the one which allows one to fix <span class="math inline">\(m\)</span> (the “width” of the network) to be bounded by <span class="math inline">\(n+m+2\)</span> by allowing arbitrarily many layers in the network, i.e.&nbsp;by combining the various <span class="math inline">\(d_j g\)</span> terms as the inputs to more copies of <span class="math inline">\(g\)</span>. This represents that tradeoff between depth and width that I’ve learned about. This works if <span class="math inline">\(g\)</span> is any non-affine function. Apparently, and this is really cool to me, it’s possible to determine the minimum required depth for a fixed <span class="math inline">\(f\)</span> and <span class="math inline">\(\epsilon\)</span>.</p>
-<p>Finally, there is a version of the theorem that, by choosing a suitable candidate for <span class="math inline">\(g\)</span>, one can put a global bound on both the depth and width of the network! I wonder if this choice of <span class="math inline">\(g\)</span> gives significant performance improvements in practice…</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In the past few months, I’ve sharpened my data science axe on three different Kaggle competitions: two tabular binary classification problems, and one tabular ordinal regression problem.</p>
+<p>I’ve learned a lot about how to set up a full data pipeline, and much of what I learned comes from <a href="https://www.kaggle.com/code/jcaliz/ps-s03e05-a-complete-eda">this notebook</a>.</p>
+<p>You could classify what I’ve learned into three categories: tools, techniques for EDA and feature engineering, and rare event modeling.</p>
+</section>
+<section id="new-tools" class="level1">
+<h1>New Tools</h1>
+<p>I’ve learned about XGBoost, which seems to be a favored boosting method on Kaggle. In the past, I’ve had trouble getting boosting to match random forests in performance, but I also learned about optuna, which is a framework for hyperparameter tuning. Together with optuna, I can now use XGBoost to get pretty good baseline performance.</p>
+</section>
+<section id="new-techniques-for-eda-and-feature-engineering" class="level1">
+<h1>New Techniques for EDA and Feature Engineering</h1>
+<p>One good way to start exploratory data analysis (EDA) is to produce pair plots for all the variables. This was already something I was doing. Sometimes, though, there are very many predictors, so it’s difficult to pick out information by eye from the pair plots. In that case, it helps to restrict to plots of the dependent variable against the predictors. I’ve also taken to computing Pearson corelation coefficients between the dependent variable and the predictors. For classification problems, it’s also helpful to model predictor distributions by class, as in the following image, which comes from a hotel bookings dataset: <img src="feature_distr.png" class="img-fluid" alt="Feature Distributions"></p>
+<p>I look for graphs where the two distributions are noticeably different. In the above image, for example, the three most important features amenable to feature engineering seemed to be “avg_price_per_room”, “lead_time”, and “no_of_special_requests”. For feature engineering, it’s important to try some interactions and higher-order polynomial terms involving the most significant predictors. It’s worth investigating certain ratios between these predictors as well. To get great results, though, it’s also important to think about domain-specific combinations of predictors; for example, I tried to make 1) a “fussiness” variable which combined “no_of_special_requests” with “required_car_parking_space” and 2) a “cancellation rate” predictor. In the hotels dataset, though, this didn’t help too much.</p>
+<p>The image below shows feature distributions for the most promising engineered features:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fe_distr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Engineered Feature Distributions</figcaption><p></p>
+</figure>
+</div>
+<p>I think the best features are ones for which the distributions are different not only for the two target classes, but also different from other features already appearing in the dataset.</p>
+</section>
+<section id="rare-event-modeling" class="level1">
+<h1>Rare Event Modeling</h1>
+<p>One of the competitions involved modeling the risk of credit card default for bank accounts. Another involved predicting a wine taster rating for different wines. In the former case, defaults were rare; in the latter case, there were very few wines that received a score of either 8 or 3 (maximum and minimum scores in the dataset, respectively). So I had to learn about methods to detect rare events. The problem with rare events is that a baseline model which predicts that the event doesn’t occur has a high accuracy. The rarity of the positive observations increases the variance of the predictors for the positive observations, so it becomes difficult to construct a model with a better accuracy than the baseline one.</p>
+<p>The method I settled on was to ensemble: I divided the training data into about 100 data sets. Each data set had all of the positive observations, and a different subset of the negative observations. The result was that the classes were distributed more equally in the smaller datasets than in the original dataset. Then, I trained a classification (random forest) model on each of the 100 data sets separately, and took the mean prediction probability over the 100 models. This technique is known as “ensembling”: the idea is that each of the constituent models has a chance to learn something meaningful about what distinguishes some negative observations from the positive ones. If certain features keep appearing in the various models, then they will aggregate to an important feature in the ensemble. Another way of putting this is that we want to be close to the inflection point of the logistic function:</p>
+<div class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If we start at the distant asymptotes of the logistic function, then we will need very large coefficients in front of our predictors to produce a meaningful difference in probabilities. Then, a small amount of noise in that predictor can produce a very large change in probabilities.</p>
+<p>In the end, the ensemble method will dramatically overrate the probabilities that it assigns to positive events, but usually we are more interested in accuracy or area under the ROC curve, so that the probability over-estimate can be compensated by a change in the threshold.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>When I was revisiting my infant mortality project, I noticed that most of what I discussed above would have been very applicable to that project as well. For example, distribution plots would have helped me to engineer features that may have improved my models. In any case, looking back on my Kaggle competitions has helped me to appreciate how far I’ve come in my journey since November.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
