@@ -1,0 +1,10 @@
+---
+title: "Rubik's Cube Solver"
+date: "03/14/23"
+format:
+  html:
+    html-math-method: mathjax
+---
+
+I have uploaded my old Rubik's Cube project to GitHub [here](https://github.com/erabinov/RubiksCube).
+The project doesn't use deep learning or ML, but it may be interesting to readers nevertheless.

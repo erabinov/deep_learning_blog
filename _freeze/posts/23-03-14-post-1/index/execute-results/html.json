@@ -1,0 +1,11 @@
+{
+  "hash": "921851bf3c041241c9ae1991893d47b9",
+  "result": {
+    "markdown": "---\ntitle: Rubik's Cube Solver\ndate: 03/14/23\nformat:\n  html:\n    html-math-method: mathjax\n---\n\nI have uploaded my old Rubik's Cube project to GitHub [here](https://github.com/erabinov/RubiksCube).\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

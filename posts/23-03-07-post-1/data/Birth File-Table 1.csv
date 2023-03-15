@@ -1,0 +1,51 @@
+,,,,
+,,,,
+Variable,Name,Coding,,
+,,,,
+Year of Birth,YOB,,,
+Sex,SEX,"1 - Male
+2 -Female
+9 - Unknown",,
+Residence of Mother -- County ,CORES,1-100 See County Codes sheet,,
+Total Pregnancies (Including This One),PARITY,"01 - 25 Total Pregnancies
+99 - Unknown",,
+"Average # Cigarettes Smoked per Day
+Three Months Prior to Pregnancy",CIGPN,"00-98
+99 - Unknown",,
+"Average # Cigarettes Smoked per Day
+First Three Months of Pregnancy",CIGFN,"00-98
+99 - Unknown",,
+"Average # Cigarettes Smoked per Day
+Second Three Months of Pregnancy",CIGSN,"00-98
+99 - Unknown",,
+"Average # Cigarettes Smoked per Day
+Third or Last Trimester",CIGLN,"00-98
+99 - Unknown",,
+Total Pregnancies (Including This One),PARITY,"01 - 25 Total Pregnancies
+99 - Unknown",,
+Birthweight in Grams,BWTG,"0000-9998  
+9999 - Unknown",,
+Obstetric Estimate of Gestation,GEST,"00-45 Weeks
+99 Unknown",,
+Plurality,PLUR,"01-16
+99 - Unknown",,
+Age of Mother,MAGE,"10-55 Years of age
+99, Blank - Unknown",,
+"Race of Mother
+(NCHS coded and edited race 'bridged' categories)",MRACER,"0 - Other non-White
+1 - White
+2 - Black or African American
+3 - American Indian or Alaska Native
+4 - Chinese
+5 - Japanese
+6 - Native Hawaiian
+7 - Filipino
+8 - Other Asian ",,
+"Hispanic Origin of Mother
+(NCHS coded and edited Hispanic 'bridged' categories) ",MHISP,"C - Cuban 
+M - Mexican
+N - Non-Hispanic
+O - Other Hispanic
+P - Puerto Rican
+S - Central/South American
+U - Unknown",,
