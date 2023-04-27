@@ -407,7 +407,7 @@ boost.preds<-predict(boost.model,newdata=na.omit(test.data))
 boost.error<-mean((boost.preds-na.omit(test.data$IMR))^2)
 ```
 
-##Summary of Results
+## Summary of Results
 
 Now, we summarize our results in a table:
 
@@ -419,7 +419,7 @@ test.error.data
 Random forests seems to have done the best. This is consistent with its reputation as the best out-of-the-box method.
 Boosting is finnicky, and probably required some more hyperparameter tuning.
 
-##Graphs and Visualizations
+## Graphs and Visualizations
 This is a graph of infant mortality rates by race and year.
 ```{r, echo=FALSE}
 br.dr.race.year<-count(br,RACE,YEAR)

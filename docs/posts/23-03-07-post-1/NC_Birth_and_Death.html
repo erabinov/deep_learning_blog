@@ -439,7 +439,9 @@ YEAR       YEAR  2.235272</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>boost.preds<span class="ot">&lt;-</span><span class="fu">predict</span>(boost.model,<span class="at">newdata=</span><span class="fu">na.omit</span>(test.data))</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>boost.error<span class="ot">&lt;-</span><span class="fu">mean</span>((boost.preds<span class="sc">-</span><span class="fu">na.omit</span>(test.data<span class="sc">$</span>IMR))<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>##Summary of Results</p>
+</section>
+<section id="summary-of-results" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-results">Summary of Results</h2>
 <p>Now, we summarize our results in a table:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mean.error<span class="ot">&lt;-</span><span class="fu">mean</span>((<span class="fu">na.omit</span>(test.data<span class="sc">$</span>IMR)<span class="sc">-</span><span class="fu">log</span>(avgIMR<span class="fl">+.007</span>))<span class="sc">^</span><span class="dv">2</span>)</span>
@@ -460,7 +462,10 @@ YEAR       YEAR  2.235272</code></pre>
 </div>
 </div>
 <p>Random forests seems to have done the best. This is consistent with its reputation as the best out-of-the-box method. Boosting is finnicky, and probably required some more hyperparameter tuning.</p>
-<p>##Graphs and Visualizations This is a graph of infant mortality rates by race and year.</p>
+</section>
+<section id="graphs-and-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="graphs-and-visualizations">Graphs and Visualizations</h2>
+<p>This is a graph of infant mortality rates by race and year.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="NC_Birth_and_Death_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
