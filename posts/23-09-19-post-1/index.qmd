@@ -1,0 +1,105 @@
+---
+title: "Thoughts on the Value-Loading Problem"
+date: "11/14/23"
+format:
+  html:
+    html-math-method: mathjax
+---
+
+This is a blog post I started writing up in September. I wrote the first draft in about a week, then set it aside with the intent of polishing it up and doing more reading to improve it. But I got waylaid in these plans, and now coming back to it, it seems in good enough shape to post. Even though the post is still somewhat rough-and-ready, I hope it can be of some use.
+
+Not long ago, I read *Superintelligence* by Nick Bostrom, an overall careful accounting of the possible futures that might occur if/once some form of superintelligence arises. It is an oracular work, written nearly ten years ago, and it discusses many issues that are starting to become unavoidable. Nevertheless, I think the book is written in a certain spirit---what is often called "Scientism"---which pinpoints the problems of superintelligence accurately but prescribes the poison as the remedy.
+
+Scientism, in brief, refers to the idea that the methods of the natural sciences are the only way to knowledge of the truth in all matters (including those---like culture, spirituality, and morality---that have traditionally been taken to be outside the purview of natural science). 
+
+In *Technopoly*, Neil Postman describes three types of society: the tool-using culture, the technocracy, and the technopoly. It is worth understanding the distinction between the first and last of these, the middle one being a sort of superposition or dialectical intermediate of the two. Perhaps the tidiest way to put the distinction is that a tool-using culture uses tools, and a technopoly is used by its tools, though this is probably an oversimplification. Or to put it another way, a tool-using culture uses its values to circumscribe its tools, while a technopoly allows its tools to circumscribe its values. In a technopoly, Scientism is a dominant strain of thought, and so is the associated idea that the scientific method "generates specific principles which can be used to organize society on a rational and humane basis," as Postman puts it.
+
+It is in the scientistic spirit that many of the solutions to the problems of superintellgience are discussed in Bostrom's book. One of the central issues that arises with AI is the difficulty of instilling human values into a potentially ultra-powerful AI system. This is known as the *value-loading problem*, and it's a very thorny question. There are many facets to the problem, but the main one is that there is no widespread agreement on the meaning of "human values". The first hurdle in creating AI was to figure out how to get a computer to do something that typical humans can do but can't describe at a computer level of precision, like identifying pictures of dog breeds. The value-loading problem is the next level of this issue: how to get a computer to do something humans don't even agree they know how to do, like act ethically.
+
+This is the context in which Bostrom proposes two "half-baked", in his words, solutions to the problem. I will mostly discuss not his solution, but Paul Christiano's, though they both take as a starting point the idea that even if we can't teach the AI our values, we can teach it good principles of ethical methodology. To some extent, this is more or less the only way to address the issue, since in any case we don't want the AI to learn static human values, but instead to make its beliefs subject to revision in light of new evidence or new ideas (as human values, to the extent that there are such values, have been over time). To be honest, though, I don't believe this makes the original problem any easier to solve: philosophers have not even been able to agree on the methodology of ethics, since, for example, there is still no agreement on whether virtue ethics, deontological ethics, or consequentialist ethics should be the dominant principle. In other words, this is just a kicking of the can down the road.
+
+Now, to Christiano's proposal in particular. It starts off by assuming the consequentialist perspective. Consequentialism is my own horse in the race, but I will note that the choice seems to be more of a contortion of ethics to technology than the other way around, since it seems like consequentialism is the easiest ethical framework to teach to a computer, especially a computer/program designed to optimize for its objectives. 
+Incidentally, Postman talks a lot about how each technology comes laden with its own ideology; optimization/consequentialism seems to be that ideology for current deep learning models.
+
+The essence of the proposal is this: we are looking for a utility function $U$ to teach to our AIs as the basis of their ethics. To do this, we 1) make a mathematical model of a single human brain and 2) specify an environment in which that human brain will spend centuries reflecting on the nature of the good. Then, $U$ is whatever utility function that brain comes up with. The appeal of the proposal is that it gives a more or less precise definition of $U$ without necessarily specifying how to compute $U$ in practice. It has the flavor of a mathematical statement like "let $n$ be the number of primes less than $2^{2^{100}}$".
+Here, $n$ is easy to define, but complicated to compute exactly.
+The hope is that while we mere mortals can't evaluate $U$ directly, perhaps the AI will at least approximately be able to.
+A philosopher friend of mine once told me the saying: "Mathematics is a game with rules but no goal. Philosophy is a game with a goal but no rules."
+
+My objections to Christiano's proposal happen both at the level of its feasibility and at the level of its background assumptions.
+The first is that we have to heed Box's warning when making a mathematical model of a human brain: "all models are wrong, but some are useful".
+What make a useful model?
+We might take "useful" to mean "parsimoniously helps to make accurate predictions on the subject of interest".
+So, how might we understand the usefulness of a mathematical model of the human brain?
+There are two possibilities: we are capable of evaluating the predictions of the model for ourselves at least in simple cases; in this case, to make our model, we almost certainly had to make simplifying assumptions.
+Of course, simplifying assumptions are part and parcel of the scientific method, but in this proposal any simplifying assumption becomes a *de facto* meta-ethical one.
+For example, we have to decide what aspects, if any, of the human's corporeal existence are relevant to their ethical decision making.
+This seems to me to be quite a subtle question.
+For example, when I'm hungry, I'm less charitable to others and my analytical faculties are diminshed.
+So, perhaps a good model will simply not model hunger.
+But, on the other hand, our capacity to suffer (and in particular to be hungry) seems to be an important component of the empathy in which our ethical beliefs are grounded.
+So, perhaps a good model will model hunger, but not make any actual decisions while hungry.
+Another example: I do my best thinking either on a walk or splayed out face down on a couch.
+Whichever human gets chosen to model moral thinking for all of humanity, that person is likely to have their own favored kinesthetic/tactile environments for thinking.
+So, it seems plausible to include these senses in the model.
+And so on...
+Every decision about what to include in the model is a decision about what is and isn't relevant to ethical reasoning.
+It's easy to imagine that the ultimate conclusions of the model will depend strongly on each such decision, especially given that we're going to run the model for hundreds of subjective years.
+Even assuming that consequentialism is the correct meta-ethical framework, when it comes to deciding *which* consequentialism is the relevant one, Christiano's proposal is far from value-neutral: the value decisions are simply hidden in implementation decisions.
+Technology can never bridge the gap between "is" and "ought".
+That is for humans alone.
+
+Now, let's suppose that we manage to overcome these objections, say by making the model include everything that could possibly be relevant to ethical decision making.
+There are still many implementation decisions with similar meta-ethical consequences:
+
+- Which human's brain are we modeling?
+- At what period of that person's life do we start the simulation?
+- What is the environment we simulate for the brain model?
+- How long do we run the simluation for?
+
+It's easy to imagine that every single one of these decisions will have a powerful impact on the final result of the computation.
+I suspect that part of the appeal of Christiano's proposal is that it pretends to skirt thorny ethical questions with a "scientific/mathematical" framework.
+But all it does is replace the question "what is right and wrong?" with the question "how long do we run the simulation?".
+At least the former question is something humans have been thinking about for thousands of years.
+What human has powerful enough intuitions to answer the latter question?
+(For this particular question, it's plausible that the model will stabilize its moral philosophy in the long-term, but that may depend on the implementation of the other aspects of the proposal, e.g., if the environment has periodic "stress-test" events for the brain.)
+
+These are questions we have to answer assuming that we accept the premises of the proposal.
+But two weak parts of the proposal stand out: first, the idea that we should accept a "philosopher-sovereign", and second, Goodhart's Law.
+Even given that the philosopher-sovereign has spent a lot of time thinking through the issues, at the end of the day, the best that a mathematical model of that person's brain could do is to accurately predict the ethical stances that person would have under the circumstances of the simulation.
+That's the only way that the model can be "wrong, but useful".
+But, as always, there's the gap between "is" and "ought".
+And of course, the choice of human brain is going to be extremely controversial.
+One way out of this last objection is to somehow simulate many (possibly all) human brains and try to obtain some sort of consensus in this way.
+This approach starts to bleed a bit into Yudkowsky's coherent extrapolated volition proposal, which I like a bit more because it has a more democratic flavor, and it tries to capture the idea that we might improve morally over time.
+So, I would be tempted to take the CEV proposal over this one.
+
+Now, to the Goodhart's Law objection, let us suppose that there is a true utility function whose maximization is the sole purpose of ethical action.
+Even if you are inclined towards consequentialism, as I am, there are a number of serious hurdles to overcome in order to justify this belief.
+But let's sweep those under the rug.
+Let's also sweep under the rug the Saint Petersburg paradox, and instead return to the arguments that $U$ is extremely sensitive to implementation decisions.
+It's worth scrutinizing this argument a bit because it may not be the case.
+As a very rough model of what might be happening, we might imagine the problem of finding $U$ as an optimization problem over the space of all utility functions.
+We are assuming that $U$ is the unique global maximum of the objective function;
+but there could be many local maxima, in which case the optimization algorithm may only find a local one.
+A counter-argument one may make is to suppose $U$ is such a salient point of the space of all utility functions that all or almost all agents will find it, given enough time.
+One could imagine the landscape of all utility functions to have a bright, high beacon shining out such that any weary traveler, having stopped at the top of a smaller hill of the terrain, will notice it and be drawn to it.
+The idea is reminiscent of the Habermasian "unforced force of the better argument".
+This is certainly a possibility, but it seems to me not to be certain enough to support a wager over the future of sentient life.
+So we should consider the possibility that the brain model finds a suboptimal utility function $U'$.
+In that case, Goodhart's Law tells us that optimization for $U'$ will look extremely different from optimization for $U$, even if $U'$ is a reasonable approximation of $U$.
+I think it's best to look for solutions to the alignment problem which don't involve mathematical optimization at all.
+
+Marshall McLuhan, in *Understanding Media: The Extensions of Man*, argues that many of our communications technologies---starting with the alphabet and proceeding through the printing press, telegraph, and computer---are manifestations of a certain approach to knowledge which seeks to divide the world into identical, repeatable units and analyze phenomena from the ground up using these units.
+Obviously, this is a useful approach, but it has its limitations.
+The problem of AI safety is essentially that AI has the potential to be the *reductio ad absurdum* of this worldview: we want to avoid creating a world measured only in paper clips.
+
+
+Technology can't tell us what we value: it can only mirror and amplify what we value back towards us.
+
+
+
+
+
+
+
