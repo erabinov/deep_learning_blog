@@ -1,5 +1,5 @@
 ---
-title: "Eugene's Deep Learning Blog"
+title: "Eugene's Computer Science Journey"
 listing:
   contents: posts
   sort: "date desc"

@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Eugene's Deep Learning Journey"
+  title: "Eugene's Computer Science Journey"
   navbar:
     right:
       - about.qmd
