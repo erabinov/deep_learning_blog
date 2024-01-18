@@ -11,7 +11,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi everybody! My name is Eugene! I’m a postdoc in pure mathematics at the University of Notre Dame. I received my PhD in mathematics from University of California, Berkeley in 2021. My research interests center around mathematical formulations of quantum field theory. As a side/pet project, I am learning about data science and machine learning. This blog is to document some of the things I’m learning. I am using the book Deep Learning for Coders and following the corresponding course from fast.ai."
+    "text": "Hi everybody! My name is Eugene! Until June 2023, I was a postdoc in pure mathematics at the University of Notre Dame. I received my PhD in mathematics from University of California, Berkeley in 2021. For the past year and a half, I’ve been learning a lot about computer science, and in particular machine learning, data science, quantum computing, and AI safety. This blog collects some thoughts and projects I’ve worked on as part of this journey."
   },
   {
     "objectID": "posts/first-ipynb-post/index.html",
