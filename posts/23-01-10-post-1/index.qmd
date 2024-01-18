@@ -1,5 +1,4 @@
 ---
-jupyter: python3
 title: "Welcome to my blog!"
 date: "01/10/23"
 format:
